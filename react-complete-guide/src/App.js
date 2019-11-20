@@ -5,21 +5,21 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      {name: "Daniel", age:29},
-      {name: "Sarah", age:32},
-      {name: "Lisa", age:23}
+      {id:"safqefaf", name: "Daniel", age:29},
+      {id:"vadsvfse", name: "Sarah", age:32},
+      {id:"sdavfsag", name: "Lisa", age:23}
     ],
     showPersons: false
   }
 
   
-  inputNameChanger = (event) => {
-    this.setState({persons: [
-      {name: "Daniel", age:29},
-      {name: event.target.value, age:32},
-      {name: "Lisa", age:23}
-    ]})
-  }
+  // inputNameChanger = (event) => {
+  //   this.setState({persons: [
+  //     {name: "Daniel", age:29},
+  //     {name: event.target.value, age:32},
+  //     {name: "Lisa", age:23}
+  //   ]})
+  // }
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons.slice(); {/*slice makes a copy of array/object */}
+    const persons = this.state.persons.slice(); /*slice makes a copy of array/object */
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
@@ -45,6 +45,7 @@ class App extends Component {
               name={person.name}
               age={person.age}
               click={() => this.deletePersonHandler(index)} 
+              key={person.id}
             />
           })}
         </div>
